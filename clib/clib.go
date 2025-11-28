@@ -1888,7 +1888,7 @@ func XMLParseInNodeContext(n PtrSource, data string, o int) (uintptr, error) {
 	cdata := C.CString(data)
 	defer C.free(unsafe.Pointer(cdata))
 	//nolint:goconst
-	if C.xmlParseInNodeContext(nptr, cdata, C.int(len(data)), C.int(o), (*C.xmlNodePtr)(c14nParseNodeContextPtr(&ret))) != 0 {
+	if C.xmlParseInNodeContext(nptr, cdata, C.int(len(data)), C.int(o), (**C.xmlNode)(c14nParseNodeContextPtr(&ret))) != 0 {
 		return 0, errors.New("XXX PLACE HOLDER XXX")
 	}
 
