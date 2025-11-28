@@ -8,8 +8,8 @@ import (
 	"path/filepath"
 	"testing"
 
-	"github.com/lestrrat-go/libxml2"
-	"github.com/lestrrat-go/libxml2/xsd"
+	"github.com/moederballa/libxml2"
+	"github.com/moederballa/libxml2/xsd"
 	"github.com/stretchr/testify/assert"
 )
 

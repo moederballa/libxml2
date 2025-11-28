@@ -341,8 +341,8 @@ import (
 	"unicode/utf8"
 	"unsafe"
 
-	"github.com/lestrrat-go/libxml2/internal/debug"
-	"github.com/lestrrat-go/libxml2/internal/option"
+	"github.com/moederballa/libxml2/internal/debug"
+	"github.com/moederballa/libxml2/internal/option"
 	"github.com/pkg/errors"
 )
 
