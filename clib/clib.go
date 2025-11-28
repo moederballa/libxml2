@@ -341,8 +341,8 @@ import (
 	"unicode/utf8"
 	"unsafe"
 
-	"github.com/moederballa/libxml2/internal/debug"
-	"github.com/moederballa/libxml2/internal/option"
+	"github.com/moederballa/libxml2/debug"
+	"github.com/moederballa/libxml2/option"
 	"github.com/pkg/errors"
 )
 

@@ -1,6 +1,6 @@
 package xsd
 
-import "github.com/moederballa/libxml2/internal/option"
+import "github.com/moederballa/libxml2/option"
 
 // Schema represents an XML schema.
 type Schema struct {
