@@ -36,6 +36,12 @@ package clib
 #include <libxml/xmlschemas.h>
 #include <libxml/schemasInternals.h>
 
+// Thin wrapper to normalize the signature for cgo across platforms.
+// cgo can pass &ret (xmlNodePtr*) directly without double-casting.
+static inline int MY_xmlParseInNodeContext(xmlNodePtr node, const char *data, int datalen, int options, xmlNodePtr *lst) {
+	return xmlParseInNodeContext(node, data, datalen, options, lst);
+}
+
 static inline void MY_nilErrorHandler(void *ctx, const char *msg, ...) {}
 
 static inline void MY_xmlSilenceParseErrors() {
@@ -1888,7 +1894,7 @@ func XMLParseInNodeContext(n PtrSource, data string, o int) (uintptr, error) {
 	cdata := C.CString(data)
 	defer C.free(unsafe.Pointer(cdata))
 	//nolint:goconst
-	if C.xmlParseInNodeContext(nptr, cdata, C.int(len(data)), C.int(o), c14nParseNodeContextPtr(&ret)) != 0 {
+	if C.MY_xmlParseInNodeContext(nptr, cdata, C.int(len(data)), C.int(o), &ret) != 0 {
 		return 0, errors.New("XXX PLACE HOLDER XXX")
 	}
 
